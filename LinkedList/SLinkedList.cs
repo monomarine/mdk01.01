@@ -108,11 +108,12 @@ namespace LinkedList
             }
         }
         public void AddBefore(T executingValue, T newValue) 
-        { //сам
+        { 
+            //TODO
         }
         public void RemoveBefore(T value)
         {
-            //сам
+            //TODO
         }
         #endregion
         
