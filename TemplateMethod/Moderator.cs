@@ -22,5 +22,10 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь загрузил изображение {title}");
         }
+
+        public override void Complaint(User user)
+        {
+            Console.WriteLine($"не может подать жалобу на пользователя: {user.Login}");
+        }
     }
 }

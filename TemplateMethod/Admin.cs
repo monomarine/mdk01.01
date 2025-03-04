@@ -22,5 +22,10 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь {Login} - роль \"АДМИН\"");
         }
+
+        public override void Complaint(User user)
+        {
+            Console.WriteLine($"не может подать жалобу на пользователя: {user.Login}");
+        }
     }
 }
