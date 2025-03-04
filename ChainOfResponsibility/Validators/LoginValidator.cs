@@ -16,10 +16,12 @@ namespace ChainOfResponsibility.Validators
 
         public bool Validate(User user)
         {
-            if(String.IsNullOrEmpty(user.Login) || user.Login.Length < 6) 
+            if (String.IsNullOrEmpty(user.Login) || user.Login.Length < 6)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("логин не удовлетворяет требованиям");
-                return false;   
+                Console.ForegroundColor = ConsoleColor.White;
+                return false;
             }
 
             return _nextValidator?.Validate(user) ?? true;
