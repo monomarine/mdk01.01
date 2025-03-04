@@ -19,7 +19,7 @@ namespace BinaryTree
             if (value != null)
             {
                 Node<T> newNode = new Node<T>(value);
-                if(value.ToString() < existingNode.Value)
+               // if (value.ToString() < existingNode.Value) ;
             }
 
         }
