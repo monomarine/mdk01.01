@@ -36,6 +36,8 @@ namespace TemplateMethod
         public abstract void BanUser(User user);
         public abstract void SendPicture(string title);
         public abstract void PrintInfo();
+        public abstract void Complaint(User user);
+
         /// <summary>
         /// шаблонный метод
         /// </summary>
@@ -44,6 +46,7 @@ namespace TemplateMethod
             PrintInfo();
             SendPicture(picTitle);
             BanUser(userForBan);
+            Complaint(userForBan);
         }
     }
 }

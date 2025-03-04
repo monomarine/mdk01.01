@@ -12,8 +12,8 @@ namespace ChainOfResponsibility
 
             User user = new User
             {
-                Login = "546",
-                Password = "password46545",
+                Login = "546User9",
+                Password = "Password46545!",
                 Email = "testemail@mail.ru"
             };
 
@@ -21,6 +21,8 @@ namespace ChainOfResponsibility
             emailValidator.SetNextValidator(passwordValidator);
 
             loginValidator.Validate(user);
+
+            Console.WriteLine("Регистрация успешно завершена");
         }
     }
 }
