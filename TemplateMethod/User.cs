@@ -36,14 +36,16 @@ namespace TemplateMethod
         public abstract void BanUser(User user);
         public abstract void SendPicture(string title);
         public abstract void PrintInfo();
+        public abstract void SendReport(User user);
         /// <summary>
         /// шаблонный метод
         /// </summary>
-        public void Work(string picTitle, User userForBan)
+        public void Work(string picTitle, User userForBan, User userForReport)
         {
             PrintInfo();
             SendPicture(picTitle);
             BanUser(userForBan);
+            SendReport(userForReport);
         }
     }
 }

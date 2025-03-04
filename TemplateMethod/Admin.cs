@@ -22,5 +22,9 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь {Login} - роль \"АДМИН\"");
         }
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"Админ отправил привилегированную жалобу на пользователя {user.Login}");
+        }
     }
 }

@@ -22,5 +22,9 @@ namespace TemplateMethod
         {
             Console.WriteLine($"не может загрузить изображение");
         }
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"Гость отправил привилегированную жалобу на пользователя {user.Login}");
+        }
     }
 }
