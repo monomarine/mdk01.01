@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TemplateMethod
 {
-    internal class Guest : User
+    internal class VIPUser : User
     {
         public override void BanUser(User user)
         {
@@ -15,7 +15,7 @@ namespace TemplateMethod
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"пользователь {Login} - роль \"ГОСТЬ\"");
+            Console.WriteLine($"пользователь {Login} - роль \"ВИП\"");
         }
 
         public override void SendPicture(string title)
@@ -24,7 +24,7 @@ namespace TemplateMethod
         }
         public override void ReportUser(User user)
         {
-            Console.WriteLine($"пользователь {Login} не может пожаловаться на пользователя {user.Login}, так как не является VIPUser");
+            Console.WriteLine($"пользователь {Login} пожаловался на пользователя {user.Login}");
         }
     }
 }

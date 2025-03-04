@@ -22,5 +22,9 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь загрузил изображение {title}");
         }
+        public override void ReportUser(User user)
+        {
+            Console.WriteLine($"пользователь {Login} не может пожаловаться на пользователя {user.Login}, так как не является VIPUser");
+        }
     }
 }
