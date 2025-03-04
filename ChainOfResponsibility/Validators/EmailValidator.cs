@@ -17,7 +17,13 @@ namespace ChainOfResponsibility.Validators
         public bool Validate(User user)
         {
             if (String.IsNullOrEmpty(user.Email)) return false;
-            if(!user.Email.Contains("@")) return false;
+            int atIndex = user.Email.IndexOf('@');
+            if (atIndex == -1 || atIndex < 8) return false;
+
+            string domain = user.Email[(atIndex + 1)..]; // Получаем домен после @
+            string[] allowedDomains = { "mail.ru", "yandex.ru", "gmail.com" };
+
+            if (!allowedDomains.Contains(domain)) return false;
 
             return _nextValidator?.Validate(user) ?? true;
         }
