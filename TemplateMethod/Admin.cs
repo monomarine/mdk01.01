@@ -22,5 +22,15 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь {Login} - роль \"АДМИН\"");
         }
+
+        public override void SendPostcard(User user)
+        {
+            Console.WriteLine($"открытка отправлена пользователю {Login} ");
+        }
+
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"вы не можете отправлять жалобу из-за ограничения роли");
+        }
     }
 }

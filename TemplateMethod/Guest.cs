@@ -22,5 +22,17 @@ namespace TemplateMethod
         {
             Console.WriteLine($"не может загрузить изображение");
         }
+
+        public override void SendPostcard(User user)
+        {
+            Console.WriteLine($"открытка не может быть отправлена пользователю {Login} - требуется роль \"ВИП\"");
+        }
+
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"вы не можете отправлять жалобу из-за ограничения роли");
+        }
+
+
     }
 }
