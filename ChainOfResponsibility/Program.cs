@@ -12,9 +12,9 @@ namespace ChainOfResponsibility
 
             User user = new User
             {
-                Login = "546",
-                Password = "password46545",
-                Email = "testemail@mail.ru"
+                Login = "546243",
+                Password = "asdsaads1ad1!asdsad21321!",
+                Email = "pochtaqw@mail.ru"
             };
 
             loginValidator.SetNextValidator(emailValidator);
