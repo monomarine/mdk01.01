@@ -22,6 +22,44 @@ namespace ChainOfResponsibility.Validators
                 Console.WriteLine("пароль не соответствует требуемой длине");
                 return false;
             }
+
+            bool hasUpper = false;
+            bool hasLower = false;
+            bool hasNumber = false;
+            bool hasSpecial = false;
+            string Specials = "#@!@";
+
+            foreach (char c in user.Password)
+            {
+                if (char.IsUpper(c))
+                    hasUpper = true;
+                if (char.IsLower(c))
+                    hasLower = true;
+                if (char.IsNumber(c))
+                    hasNumber = true;
+                if (Specials.Contains(c))
+                    hasSpecial = true;
+            }
+            if (!hasUpper)
+            {
+                Console.WriteLine("Пароль должен содержать символы в верхнем регистре");
+                return false;
+            }
+            if (!hasLower)
+            {
+                Console.WriteLine("Пароль должен содержать символы в нижнем регистре");
+                return false;
+            }
+            if (!hasNumber)
+            {
+                Console.WriteLine("Пароль должен содержать числа");
+                return false;
+            }
+            if (!hasSpecial)
+            {
+                Console.WriteLine("Пароль должен содержать специальые символы (# * ! @)");
+                return false;
+            }
             return _nextValidator?.Validate(user) ?? true;
         }
     }
