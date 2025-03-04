@@ -6,21 +6,22 @@ namespace ChainOfResponsibility
     {
         static void Main(string[] args)
         {
-            EmailValidator emailValidator = new EmailValidator();   
+            EmailValidator emailValidator = new EmailValidator();
             PasswordValidator passwordValidator = new PasswordValidator();
             LoginValidator loginValidator = new LoginValidator();
 
             User user = new User
             {
-                Login = "546",
-                Password = "password46545",
+                Login = "testUser",
+                Password = "TestPass1@",
                 Email = "testemail@mail.ru"
             };
 
             loginValidator.SetNextValidator(emailValidator);
             emailValidator.SetNextValidator(passwordValidator);
 
-            loginValidator.Validate(user);
+            bool isValid = loginValidator.Validate(user);
+            Console.WriteLine(isValid ? "Все данные валидны" : "Ошибка валидации");
         }
     }
 }
