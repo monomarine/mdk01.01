@@ -22,5 +22,14 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь {Login} - роль \"АДМИН\"");
         }
+        public override void SendGift(User user)
+        {
+            Console.WriteLine($"нельзя отправить подарок");
+        }
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"нельзя отправить репорт");
+
+        }
     }
 }

@@ -17,8 +17,24 @@ namespace ChainOfResponsibility.Validators
         public bool Validate(User user)
         {
             if (String.IsNullOrEmpty(user.Email)) return false;
-            if(!user.Email.Contains("@")) return false;
 
+            
+            int atIndex = user.Email.IndexOf('@');
+
+            if (atIndex == -1) {
+                Console.WriteLine("не содержит @");
+                return false;
+            } 
+            if (atIndex < 8)
+            {
+                Console.WriteLine("длина символов до @ - не менее 8");
+            } 
+            string domain = user.Email.Substring(atIndex + 1);
+            if (domain != "mail.ru" && domain != "yandex.ru" && domain != "gmail.com")
+            {
+                Console.WriteLine("не содкржит нужного домена");
+                
+            }
             return _nextValidator?.Validate(user) ?? true;
         }
     }

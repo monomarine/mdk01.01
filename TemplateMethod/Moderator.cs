@@ -22,5 +22,14 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь загрузил изображение {title}");
         }
+        public override void SendGift(User user)
+        {
+            Console.WriteLine($"нельзя отправить подарок");
+        }
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"нельзя отправить репорт");
+           
+        }
     }
 }
