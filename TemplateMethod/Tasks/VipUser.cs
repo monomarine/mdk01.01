@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TemplateMethod
+namespace TemplateMethod.Tasks
 {
-    internal class Guest : User
+    internal class VipUser : User
     {
         public override void BanUser(User user)
         {
@@ -15,7 +15,7 @@ namespace TemplateMethod
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"пользователь {Login} - роль \"ГОСТЬ\"");
+            Console.WriteLine($"пользователь {Login} - роль \"VIP-Пользователь\"");
         }
 
         public override void SendPicture(string title)
@@ -25,12 +25,15 @@ namespace TemplateMethod
 
         public override void SendKiss(User user)
         {
-            Console.WriteLine($"нельзя отправить поцелуй пользователю {user.Login}");
+            Console.WriteLine($"отправлен поцелуй пользователю {user.Login}");
         }
 
         public override void SendReport(User user)
         {
-            Console.WriteLine($"нельзя отправить репорт пользователю {user.Login}");
+            user.count++;
+            if (user.count == 10)
+                user.BanUser(user);
+            Console.WriteLine($"отправлен репорт пользователю {user.Login}");
         }
     }
 }

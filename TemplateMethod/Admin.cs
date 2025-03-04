@@ -22,5 +22,15 @@ namespace TemplateMethod
         {
             Console.WriteLine($"пользователь {Login} - роль \"АДМИН\"");
         }
+
+        public override void SendKiss(User user)
+        {
+            Console.WriteLine($"отправлен поцелуй пользователю {user.Login}");
+        }
+
+        public override void SendReport(User user)
+        {
+            Console.WriteLine($"нельзя отправить репорт пользователю {user.Login}");
+        }
     }
 }
