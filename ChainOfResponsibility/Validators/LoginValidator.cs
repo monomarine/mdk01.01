@@ -19,7 +19,7 @@ namespace ChainOfResponsibility.Validators
             if(String.IsNullOrEmpty(user.Login) || user.Login.Length < 6) 
             {
                 Console.WriteLine("логин не удовлетворяет требованиям");
-                return false;   
+                return false;
             }
 
             return _nextValidator?.Validate(user) ?? true;

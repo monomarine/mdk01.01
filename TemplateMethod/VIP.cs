@@ -6,30 +6,38 @@ using System.Threading.Tasks;
 
 namespace TemplateMethod
 {
-    internal class Guest : User
+    internal class VIP : User
     {
         public override void BanUser(User user)
         {
             Console.WriteLine($"не может забанить пользователя {user.Login}"); ;
         }
 
-        public override void PrintInfo()
-        {
-            Console.WriteLine($"пользователь {Login} - роль \"ГОСТЬ\"");
-        }
-
         public override void SendPicture(string title)
         {
             Console.WriteLine($"не может загрузить изображение");
         }
+
         public override void SendGift(User user)
         {
-            Console.WriteLine($"нельзя отправить подарок");
+            Console.WriteLine($"Вы отправили подарок пользователю: {Login}");
         }
+
+        public override void PrintInfo()
+        {
+            Console.WriteLine($"пользователь {Login} - роль \"ВИП\"");
+        }
+
         public override void SendReport(User user)
         {
-            Console.WriteLine($"нельзя отправить репорт");
+            Console.WriteLine($"был отправлен репорт на пользователя с ником: {Login}");
+           
+            user.countReport++;
 
+            if (user.countReport > 5) 
+            {
+            BanUser(user);
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ namespace TemplateMethod
     { 
         private string _login;
         private string _password;
+        public int countReport;
 
        public string Login
             {
@@ -35,15 +36,19 @@ namespace TemplateMethod
 
         public abstract void BanUser(User user);
         public abstract void SendPicture(string title);
+        public abstract void SendGift(User user);
+        public abstract void SendReport(User user);
         public abstract void PrintInfo();
         /// <summary>
         /// шаблонный метод
         /// </summary>
-        public void Work(string picTitle, User userForBan)
+        public void Work(string picTitle, User userForBan, User userForGift, User userReports)
         {
             PrintInfo();
             SendPicture(picTitle);
             BanUser(userForBan);
+            SendGift(userForGift);
+            Console.WriteLine($"количество репортов у пользователя с ником: {Login} = {userReports.countReport}");
         }
     }
 }
