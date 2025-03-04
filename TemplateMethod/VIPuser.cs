@@ -2,7 +2,7 @@
 
 namespace TemplateMethod
 {
-    internal class Guest : User
+    internal class VIPuser : User
     {
         public override void BanUser(User user)
         {
@@ -11,12 +11,12 @@ namespace TemplateMethod
 
         public override void SendPicture(string title)
         {
-            Console.WriteLine("Не может загрузить изображение");
+            Console.WriteLine($"VIP-пользователь загрузил изображение {title}");
         }
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"Пользователь {Login} - роль \"ГОСТЬ\"");
+            Console.WriteLine($"Пользователь {Login} - роль \"VIP\"");
         }
     }
 }

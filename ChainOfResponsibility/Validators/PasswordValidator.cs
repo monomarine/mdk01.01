@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ChainOfResponsibility.Validators;
+using ChainOfResponsibility;
+using System.Text.RegularExpressions;
 
-namespace ChainOfResponsibility.Validators
+internal class PasswordValidator : IValidator
 {
-    internal class PasswordValidator : IValidator
+    private IValidator _nextValidator;
+    private static readonly Regex PasswordRegex = new Regex(
+        "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#*!@]).{8,}$");
+
+    public void SetNextValidator(IValidator validator)
     {
-        private IValidator _nextValidator;
-        public void SetNextValidator(IValidator validator)
+        _nextValidator = validator;
+    }
+
+    public bool Validate(User user)
+    {
+        if (string.IsNullOrEmpty(user.Password))
         {
-            _nextValidator = validator;
+            Console.WriteLine("Пароль не может быть пустым");
+            return false;
         }
 
-        public bool Validate(User user)
+        if (!PasswordRegex.IsMatch(user.Password))
         {
-            if (String.IsNullOrEmpty(user.Password) || user.Password.Length < 8)
-            {
-                Console.WriteLine("пароль не соответствует требуемой длине");
-                return false;
-            }
-            return _nextValidator?.Validate(user) ?? true;
+            Console.WriteLine("Пароль должен содержать латинские буквы в обоих регистрах, цифры и спецсимволы # * ! @");
+            return false;
         }
+
+        return _nextValidator?.Validate(user) ?? true;
     }
 }

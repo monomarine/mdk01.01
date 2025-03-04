@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TemplateMethod
 {
@@ -10,17 +6,17 @@ namespace TemplateMethod
     {
         public override void BanUser(User user)
         {
-            Console.WriteLine($"пользователь {user.Login} был забанен");
+            Console.WriteLine($"Пользователь {user.Login} был забанен");
         }
 
         public override void SendPicture(string title)
         {
-            Console.WriteLine($"было загружено озображение {title}");
+            Console.WriteLine($"Было загружено изображение {title}");
         }
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"пользователь {Login} - роль \"АДМИН\"");
+            Console.WriteLine($"Пользователь {Login} - роль \"АДМИН\"");
         }
     }
 }
