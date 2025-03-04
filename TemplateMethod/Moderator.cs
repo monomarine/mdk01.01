@@ -10,17 +10,22 @@ namespace TemplateMethod
     {
         public override void BanUser(User user)
         {
-            Console.WriteLine($"не может забанить пользователя {user.Login}");
+            Console.WriteLine($"Не может забанить пользователя {user.Login}");
         }
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"пользователь {Login} - роль \"МОДЕРАТОР\"");
+            Console.WriteLine($"Пользователь {Login} - роль \"МОДЕРАТОР\"");
         }
 
         public override void SendPicture(string title)
         {
-            Console.WriteLine($"пользователь загрузил изображение {title}");
+            Console.WriteLine($"Пользователь загрузил изображение {title}");
+        }
+
+        public override void ReportUser(User user)
+        {
+            Console.WriteLine($"Модератор {Login} не может отправить привилегированную жалобу на {user.Login}, так как не является VIP-пользователем");
         }
     }
 }
