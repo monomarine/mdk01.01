@@ -10,7 +10,9 @@ namespace TemplateMethod
     {
         public override void BanUser(User user)
         {
-            Console.WriteLine($"не может забанить пользователя {user.Login}"); ;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"не может забанить пользователя {user.Login}"); 
+            Console.ResetColor();
         }
 
         public override void PrintInfo()
@@ -21,6 +23,13 @@ namespace TemplateMethod
         public override void SendPicture(string title)
         {
             Console.WriteLine($"не может загрузить изображение");
+        }
+
+        public override void Complaint(User user)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Гость не может подавать жалобы.");
+            Console.ResetColor();
         }
     }
 }
