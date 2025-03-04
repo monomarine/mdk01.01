@@ -45,5 +45,10 @@ namespace TemplateMethod
             SendPicture(picTitle);
             BanUser(userForBan);
         }
+
+        public void Report(User user)
+        {
+            Console.WriteLine($"Пользователь {Login} пожаловался на пользователя {user.Login}");
+        }
     }
 }
