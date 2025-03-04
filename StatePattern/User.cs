@@ -12,7 +12,7 @@ namespace StatePattern
 #pragma warning disable
         private string _login;
         private string _password;
-
+        
         public string Login 
         { 
             get => _login;
