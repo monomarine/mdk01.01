@@ -12,8 +12,8 @@ namespace ChainOfResponsibility
 
             User user = new User
             {
-                Login = "546",
-                Password = "password46545",
+                Login = "546341",
+                Password = "PeTr*#46545",
                 Email = "testemail@mail.ru"
             };
 
